@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brahmastra AI Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="menu-header">
+        <i class="fa fa-bars" id="menuIcon"></i>
+        <span id="menuText">Menu</span>
+    </div>
+    <ul class="menu">
+        <li><a href="#"><i class="fa fa-user"></i> <span class="link-text">Humanizer</span></a></li>
+        <li><a href="AI-detector.html"><i class="fa fa-robot"></i> <span class="link-text">AI Detector</span></a></li>
+        <li><a href="#"><i class="fa fa-language"></i> <span class="link-text">Language</span></a></li>
+        <li><a href="#" id="darkModeToggle"><i class="fa fa-moon"></i> <span class="link-text">Dark Mode</span></a></li>
+        <li><a href="support.html"><i class="fa fa-envelope"></i> <span class="link-text">Support & Feedback</span></a></li>
+        <li><a href="#"><i class="fa fa-gear"></i> <span class="link-text">Settings</span></a></li>
+    </ul>
+    <div class="free-plan">
+        <p>FREE PLAN</p>
+        <p>Your current plan is free. Need more functions?</p>
+        <button>Upgrade plan</button>
+    </div>
+</div>
+
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header>
+                <h1>Brahmastra</h1>
+                <p>Brahmastra rewrites AI content into human-like text. Guaranteed plagiarism-free & undetectable by AI detectors.</p>
+            </header>
+            <div class="model-selector">
+                <label>Select your preferred model</label>
+                <button class="model-btn active">Arjun</button>
+                <button class="model-btn">Karna</button>
+            </div>
+            <textarea id="inputText" placeholder="Enter the text that you want to make it unique and human"></textarea>
+            <div class="action-buttons">
+                <button class="paste-btn" id="humanizeBtn">Humanize</button>
+                <button class="sample-btn">Try sample text</button>
+            </div>
+
+            <!-- Output Section -->
+            <div id="outputSection" class="output-section">
+                <h3>Your New Undetectable Content:</h3>
+                <div id="outputBox" class="output-box"></div>
+            </div>
+        </div>
+    </div> 
+    
+     <!-- Chatbot Button -->
+<div class="chatbot">
+    <button class="chatbot-btn" id="chatbotBtn">
+        <i class="fa-solid fa-comments"></i> Chat with us
+    </button>
+
+    <!-- Chatbox that appears on click -->
+    <div class="chatbox-container" id="chatboxContainer">
+        <div class="chatbox-header">
+            <h3>Chat Support</h3>
+            <button id="closeChat" class="close-chat">&times;</button>
+        </div>
+        <div class="chatbox-body">
+            <p>Hi! How can we assist you today?</p>
+            <!-- You can extend this with further chat functionalities -->
+        </div>
+        <div class="chatbox-footer">
+            <input type="text" placeholder="Type your message..." id="userMessage">
+            <button class="send-btn">Send</button>
+        </div>
+        
+    </div>
+</div>
+<!-- Place this where you want the select region button to appear -->
+<div class="select-region-container">
+    <button id="selectRegionBtn" class="select-region-btn">Select Region</button>
+    <div id="regionPopup" class="region-popup">
+      <ul>
+        <li data-country="USA" data-timezone="America/New_York">USA</li>
+        <li data-country="Canada" data-timezone="America/Toronto">Canada</li>
+        <li data-country="UK" data-timezone="Europe/London">UK</li>
+        <li data-country="Germany" data-timezone="Europe/Berlin">Germany</li>
+        <li data-country="France" data-timezone="Europe/Paris">France</li>
+        <li data-country="India" data-timezone="Asia/Kolkata">India</li>
+        <li data-country="China" data-timezone="Asia/Shanghai">China</li>
+        <li data-country="Japan" data-timezone="Asia/Tokyo">Japan</li>
+        <li data-country="Australia" data-timezone="Australia/Sydney">Australia</li>
+        <li data-country="Brazil" data-timezone="America/Sao_Paulo">Brazil</li>
+        <li data-country="Russia" data-timezone="Europe/Moscow">Russia</li>
+        <li data-country="South Africa" data-timezone="Africa/Johannesburg">South Africa</li>
+        <li data-country="Mexico" data-timezone="America/Mexico_City">Mexico</li>
+        <li data-country="South Korea" data-timezone="Asia/Seoul">South Korea</li>
+        <li data-country="Italy" data-timezone="Europe/Rome">Italy</li>
+        <li data-country="Spain" data-timezone="Europe/Madrid">Spain</li>
+        <li data-country="Netherlands" data-timezone="Europe/Amsterdam">Netherlands</li>
+        <li data-country="Switzerland" data-timezone="Europe/Zurich">Switzerland</li>
+        <li data-country="Sweden" data-timezone="Europe/Stockholm">Sweden</li>
+        <li data-country="Turkey" data-timezone="Europe/Istanbul">Turkey</li>
+      </ul>
+    </div>
+  </div>
+  <div id="selectedTime" class="selected-time"></div>
+  <div id="footer-placeholder"></div> 
+  
+  
+  <!-- Place this in your index.html before or near the Select Region button -->
+<div class="login-region-container">
+    <!-- Login Button -->
+    <button id="loginBtn" class="login-btn">Login</button>
+
+
+<!-- Include this script in your existing app.js -->
+<script>
+    // Redirect to the login page when the login button is clicked
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.addEventListener('click', function() {
+        window.location.href = 'login.html';
+    });
+</script>
+
+  
+</body>
+</html>

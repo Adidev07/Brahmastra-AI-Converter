@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Detector</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Internal CSS -->
+    <style>
+        /* Base styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1E1E2F;
+            color: white;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* Sidebar styling */
+        .sidebar {
+            width: 220px;
+            background-color: #252537;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .logo h2 {
+            color: #FF5C93;
+            font-size: 1.5em;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 20px 0;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .menu li a:hover {
+            color: #FF5C93;
+            transition-duration: 0.5s;
+        }
+
+        .free-plan {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .free-plan button {
+            background-color: #FF5C93;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .free-plan button:hover {
+            background-color: #FF7FAA;
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #FF5C93;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #A9A9B3;
+        }
+
+        .input-section {
+            margin-top: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            background-color: #2D2D3A;
+            color: white;
+            border: 1px solid #FF5C93;
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            min-height: 150px;
+        }
+
+        .upload-section {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #FF5C93;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #FF7FAA;
+        }
+
+        .analyze-btn {
+            margin-top: 20px;
+        }
+
+        /* Output Section */
+        .output-section {
+            margin-top: 30px;
+            background-color: #2D2D3A;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .percentage-box p {
+            font-size: 1.5em;
+            color: #FF5C93;
+        }
+
+        .classification ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .classification ul li {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2>Brahmastra</h2>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Humanizer</a></li>
+                <li><a href="#">AI Detector</a></li>
+                <li><a href="#"><i class="fa-solid fa-language"></i> Language</a></li>
+                <li><a href="#"><i class="fa-regular fa-moon"></i> Dark Mode</a></li>
+                <li><a href="support.html"><i class="fa-regular fa-envelope"></i> Support & Feedback</a></li>
+                <li><a href="#"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            </ul>
+            <div class="free-plan">
+                <p>FREE PLAN</p>
+                <p>Your current plan is free. Need more functions?</p>
+                <button>Upgrade Plan</button>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main-content">
+            <header>
+                <h1>AI Detector</h1>
+                <p>Analyze your text to check if it's AI-generated or human-written.</p>
+            </header>
+
+            <!-- Text Input Section -->
+            <div class="input-section">
+                <textarea id="inputText" placeholder="Add text to get started"></textarea>
+                <div class="upload-section">
+                    <button id="pasteText">Paste text</button>
+                    <button id="uploadDoc">Upload doc</button>
+                </div>
+                <button id="analyzeBtn" class="analyze-btn">Analyze text</button>
+            </div>
+
+            <!-- Output Section -->
+            <div id="outputSection" class="output-section">
+                <h3>AI Detection Result:</h3>
+                <div id="percentageBox" class="percentage-box">
+                    <p><span id="aiPercentage">--%</span> of text is likely AI-generated</p>
+                </div>
+                <div class="classification">
+                    <ul>
+                        <li>AI-generated: <span id="aiGenScore">--%</span></li>
+                        <li>AI-generated & AI-refined: <span id="aiRefinedScore">--%</span></li>
+                        <li>Human-written & AI-refined: <span id="humanAiRefinedScore">--%</span></li>
+                        <li>Human-written: <span id="humanWrittenScore">--%</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const inputText = document.getElementById('inputText');
+        const aiPercentage = document.getElementById('aiPercentage');
+        const aiGenScore = document.getElementById('aiGenScore');
+        const aiRefinedScore = document.getElementById('aiRefinedScore');
+        const humanAiRefinedScore = document.getElementById('humanAiRefinedScore');
+        const humanWrittenScore = document.getElementById('humanWrittenScore');
+
+        analyzeBtn.addEventListener('click', () => {
+            const text = inputText.value.trim();
+
+            if (text === "") {
+                alert("Please enter text to analyze.");
+            } else {
+                // Simulate detection percentages
+                const aiMatch = Math.floor(Math.random() * 101);
+                const aiGen = Math.floor(Math.random() * (aiMatch + 1));
+                const aiRefined = Math.floor(Math.random() * (aiMatch - aiGen + 1));
+                const humanAiRefined = Math.floor(Math.random() * (100 - aiMatch));
+                const humanWritten = 100 - aiMatch;
+
+                aiPercentage.textContent = `${aiMatch}%`;
+                aiGenScore.textContent = `${aiGen}%`;
+                aiRefinedScore.textContent = `${aiRefined}%`;
+                humanAiRefinedScore.textContent = `${humanAiRefined}%`;
+                humanWrittenScore.textContent = `${humanWritten}%`;
+            }
+        });
+    </script>  
+    <!-- Footer Inclusion -->
+<div id="footer-placeholder"></div>
+  </body>
+</html>

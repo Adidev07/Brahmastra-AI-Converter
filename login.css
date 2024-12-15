@@ -1,0 +1,161 @@
+.login {
+    padding: 10px 20px;
+    background-color: #FF5C93;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1em;
+}
+
+button#loginBtn {
+    padding: 10px 20px;
+    background-color: #FF5C93;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1em;
+    position: fixed;
+    top: 20px;
+    right: 170px;
+}
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the login box */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.login-box p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.forgot-password {
+    text-align: right;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.login-btn {
+    background-color: #efeaea;
+    color: rgb(234, 55, 84);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.login-btn:hover {
+    background-color: #333;
+}
+
+.login-google, .login-facebook {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-google {
+    background-color: #DB4437;
+    color: white;
+}
+
+.login-google i {
+    margin-right: 10px;
+}
+
+.login-facebook {
+    background-color: #3b5998;
+    color: white;
+}
+
+.login-facebook i {
+    margin-right: 10px;
+}
+
+.login-google:hover {
+    background-color: #c2332b;
+}
+
+.login-facebook:hover {
+    background-color: #2d4373;
+}
+
+p {
+    text-align: center;
+}
+
+p a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}

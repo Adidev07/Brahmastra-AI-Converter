@@ -1,0 +1,376 @@
+/* Base styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1E1E2F;
+    color: white;
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 180px;
+    background-color: #252537;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+
+}
+
+.logo h2 {
+    color: #FF5C93;
+    font-size: 1.5em;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    margin: 20px 0;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 0;
+    display: block;
+}
+
+.menu li a:hover {
+    color: #FF5C93;
+    font-size: 1.25em;
+    transition-duration: 0.5s;
+
+
+}
+
+.free-plan {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.free-plan p {
+    margin: 10px 0;
+}
+
+.free-plan button {
+    background-color: #FF5C93;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.free-plan button:hover {
+    background-color: #FF7FAA;
+}
+
+/* Main content styling */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #FF5C93;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #A9A9B3;
+}
+
+.model-selector {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.model-selector label {
+    font-size: 1.1em;
+    color: #A9A9B3;
+}
+
+.model-btn {
+    margin: 10px;
+    padding: 10px 30px;
+    background-color: #3C3C4F;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 16px;
+    transform: translateZ(0);
+    transition-duration: 0.5s;
+
+}
+
+.model-btn:hover{
+    font-size: 16px;
+}
+.model-btn.active {
+    background-color: #FF5C93;
+    color: white;
+
+}
+
+textarea {
+     width: 80%;
+    height: 200px;
+    background-color: #2D2D3A;
+    color: white;
+    border: 1px solid #FF5C93;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+     margin-bottom: 20px; 
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.paste-btn,
+.sample-btn {
+    background-color: #FF5C93;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.paste-btn:hover,
+.sample-btn:hover {
+    background-color: #FF7FAA;
+}
+
+/* Output Section */
+
+.output-box {
+    width: 80%;
+    height: 200px;
+    background-color: #2D2D3A;
+    color: white;
+    border: 1px solid #FF5C93;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Chatbot button styling */
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.chatbot-btn {
+    background-color: #FF5C93;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatbot-btn i {
+    font-size: 1.2em;
+}
+
+.chatbot-btn:hover {
+    background-color: #FF7FAA;
+}
+
+/* Chatbox styling */
+.chatbox-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: #252537;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+}
+
+.chatbox-header {
+    background-color: #FF5C93;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.chatbox-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.chatbox-body {
+    padding: 15px;
+    color: #A9A9B3;
+    font-size: 0.9em;
+}
+
+.chatbox-footer {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #FF5C93;
+}
+
+.chatbox-footer input {
+    width: 80%;
+    padding: 10px;
+    background-color: #2D2D3A;
+    border: 1px solid #FF5C93;
+    border-radius: 5px;
+    color: white;
+    margin-right: 10px;
+}
+
+.chatbox-footer .send-btn {
+    background-color: #FF5C93;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chatbox-footer .send-btn:hover {
+    background-color: #FF7FAA;
+}
+
+/* Responsive Chatbot */
+@media (max-width: 600px) {
+    .chatbox-container {
+        width: 90%;
+        right: 5%;
+    }
+}
+
+/* Bg theme dark mode */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.sidebar a {
+    color: white;
+}
+
+.sidebar a:hover {
+    color: #FF5C93;
+}
+
+.footer-section ul li a {
+    color: #A9A9B3;
+}
+
+.footer-section ul li a:hover {
+    color: #FF5C93;
+}
+
+/* Add or update these styles in your CSS file for select region button */
+
+/* Container positioning */
+.select-region-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  /* Button styling with slight animation */
+  .select-region-btn {
+    padding: 10px 20px;
+    background-color: #FF5C93;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1em;
+  }
+  
+  /* Animation on hover */
+  .select-region-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Popup list styling */
+  .region-popup {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: #252537;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 50px;
+  }
+  
+  .region-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .region-popup li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: white;
+  }
+  
+  .region-popup li:hover {
+    background-color: #FF5C93;
+  }
+  
+  /* Time display styles */
+  .selected-time {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #252537;
+    padding: 5px 10px;
+    border-radius: 50px;
+  }
+
+  
+  
